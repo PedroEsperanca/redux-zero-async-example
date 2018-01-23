@@ -23,6 +23,6 @@
     "preact-cli": "^2.1.0"
   },
   "dependencies": {
-    "redux-zero": "^4.4.0"
+    "redux-zero": "^4.10.0"
   }
 }

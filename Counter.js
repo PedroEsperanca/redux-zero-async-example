@@ -2,21 +2,24 @@ import { Connect } from "redux-zero/preact";
 
 import actions from "./actions";
 
-const mapToProps = ({ count, loading, payload }) => ({ count, loading, payload });
+const mapToProps = ({ count, loading, payload, payload2 }) => ({ count, loading, payload, payload2 });
 
 export default () => (
   <Connect mapToProps={mapToProps} actions={actions}>
-    {({ count, loading, payload, increment, decrement, getTodos }) => (
+    {({ count, loading, payload, payload2, increment, decrement, asyncAction1 }) => (
       <div>
         <h1>{count} - {loading.toString()} </h1>
 
-        <p>getTodos response (not actually todos :p):</p>
+        <p>asyncAction1 response:</p>
         <pre>{ JSON.stringify(payload, null, 2) }</pre>
+
+        <p>asyncAction2 (triggered inside asyncAction1) response:</p>
+        <pre>{ JSON.stringify(payload2, null, 2) }</pre>
 
         <div>
           <button onClick={decrement}>decrement</button>
           <button onClick={increment}>increment</button>
-          <button onClick={getTodos}>getTodos</button>
+          <button onClick={asyncAction1}>asyncAction1</button>
         </div>
       </div>
     )}
